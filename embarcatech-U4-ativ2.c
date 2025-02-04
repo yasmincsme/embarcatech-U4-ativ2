@@ -6,8 +6,8 @@
 
 #define LEDS 3
 #define BUTTON_A 5
-#define DEBOUNCE_TIME_US 200000  // 200ms
-#define TIME 3000  // 3s
+#define DEBOUNCE_TIME_US 200000  
+#define TIME 3000  
 
 uint8_t led_pins[LEDS] = {13, 12, 11};
 
@@ -16,6 +16,7 @@ static volatile bool running = false;
 static volatile int step = 0;
 
 void setup_all(void) {
+
     gpio_init(BUTTON_A);
     gpio_set_dir(BUTTON_A, GPIO_IN);
     gpio_pull_up(BUTTON_A);
@@ -36,7 +37,7 @@ bool timer_callback(struct repeating_timer *rt) {
     
     step++;
     if (step > LEDS) {
-        running = false; // Finaliza a sequência
+        running = false;
         step = 0;
     }
 
@@ -49,7 +50,7 @@ static void gpio_irq_handler(uint gpio, uint32_t events) {
     if (gpio == BUTTON_A && (events & GPIO_IRQ_EDGE_FALL)) {
         if (current_time - last_press_A > DEBOUNCE_TIME_US) {
             last_press_A = current_time;
-            if (!running) { // Inicia a sequência apenas se não estiver rodando
+            if (!running) { 
                 running = true;
                 step = 0;
             }
