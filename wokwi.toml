@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/embarcatech-U4-ativ2.hex'
+elf = 'build/embarcatech-U4-ativ2.elf'
