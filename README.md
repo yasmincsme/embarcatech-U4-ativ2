@@ -57,10 +57,38 @@ ninja
    - Clique em run usando a extensão do raspberry pi pico.
 
 
-## Testes e Validação
-- Verifique se os LEDs acendem e apagam na sequência correta.
-- Teste se o botão não pode ser acionado durante a execução do temporizador.
-- Caso tenha implementado o debounce, avalie se houve redução de falsos acionamentos.
+## Testes
+
+### **1. Teste básico**
+
+- **Descrição:** Ao pressionar o botão A, todos os leds piscam (formando a cor branca) por 3 segundos, depois, apenas dois leds permanecem acessos (formando a cor roxa) e, por fim, resta apenas um led ligado (led vermelho). Após o fim da rotina, todos os leds permanecem desligados até que haja o acionamento do botão novamente.
+
+**Teste no Software:**  
+![Demonstração no software](docs/ativ2-vid1.gif)
+
+**Teste no Hardware:**  
+![Demostração no hardware](docs/hardware-ativ2-vid1.gif)
+
+### **2. Demonstração de continuidade**
+
+- **Descrição:** O botão A é pressionada duas vezes.
+
+**Teste no Software:**  
+![Demonstração no software](docs/ativ2-vid2.gif)
+
+**Teste no Hardware:**  
+![Demostração no hardware](docs/hardware-ativ2-vid2.gif)
+
+### **3. Teste de interrupção**
+
+- **Descrição:** O botão A é pressionado inúmeras vezes durante a execução da rotina para demonstrar que o acionamento do botão não interfere no programa durante o acionamento dos leds.
+
+**Teste no Software:**  
+![Demonstração no software](docs/ativ2-vid3.gif)
+
+**Teste no Hardware:**  
+![Demostração no hardware](docs/hardware-ativ2-vid3.gif)
+
 
 ## Vídeo de Demonstração
 
