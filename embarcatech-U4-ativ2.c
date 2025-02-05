@@ -31,16 +31,33 @@ void setup_all(void) {
 bool timer_callback(struct repeating_timer *rt) {
     if (!running) return true; // Só executa se a sequência estiver rodando
 
-    for (uint8_t i = 0; i < LEDS; ++i) {
-        gpio_put(led_pins[i], i < (LEDS - step));
+    // Define os LEDs para formar cores específicas
+    switch (step) {
+        case 0: // Branco (todos os LEDs ligados)
+            for (uint8_t i = 0; i < LEDS; ++i) {
+                gpio_put(led_pins[i], 1);
+            }
+            break;
+        case 1: // Roxo (LEDs 1 e 3 ligados)
+            gpio_put(led_pins[0], 1);
+            gpio_put(led_pins[1], 1);
+            gpio_put(led_pins[2], 0);
+            break;
+        case 2: // Vermelho (somente o primeiro LED ligado)
+            gpio_put(led_pins[0], 1);
+            gpio_put(led_pins[1], 0);
+            gpio_put(led_pins[2], 0);
+            break;
+        case 3: // Desliga todos os LEDs
+            for (uint8_t i = 0; i < LEDS; ++i) {
+                gpio_put(led_pins[i], 0);
+            }
+            running = false; // Finaliza a sequência
+            step = 0;
+            return false; // Para o temporizador
     }
     
     step++;
-    if (step > LEDS) {
-        running = false; // Finaliza a sequência
-        step = 0;
-    }
-
     return true;
 }
 
