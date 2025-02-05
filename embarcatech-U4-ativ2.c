@@ -67,7 +67,7 @@ static void gpio_irq_handler(uint gpio, uint32_t events) {
     if (gpio == BUTTON_A && (events & GPIO_IRQ_EDGE_FALL)) {
         if (current_time - last_press_A > DEBOUNCE_TIME_US) {
             last_press_A = current_time;
-            if (!running) { // Inicia a sequência apenas se não estiver rodando
+            if (!running) { 
                 running = true;
                 step = 0;
                 timer_callback(NULL); // Aciona a sequência imediatamente
