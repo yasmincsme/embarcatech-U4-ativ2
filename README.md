@@ -1,4 +1,16 @@
+<div align="center">
+    <img src="https://moodle.embarcatech.cepedi.org.br/pluginfile.php/1/theme_moove/logo/1733422525/Group%20658.png" alt="Logo Embarcatech" height="100">
+</div>
+
+<br>
+
+
+<div align="center">
+
 # Atividade 2: Temporizador de um Disparo (One Shot)
+
+</div>
+
 
 ## Descrição
 Este projeto implementa um sistema de temporização para acionamento de LEDs a partir do clique em um botão (pushbutton), utilizando a função `add_alarm_in_ms()` do Pico SDK. O objetivo é controlar o acionamento progressivo e o desligamento dos LEDs conforme um temporizador configurado para 3 segundos.
@@ -50,6 +62,9 @@ ninja
 - Teste se o botão não pode ser acionado durante a execução do temporizador.
 - Caso tenha implementado o debounce, avalie se houve redução de falsos acionamentos.
 
+## Vídeo de Demonstração
+
+[Clique aqui](https://youtu.be/tUTgC4oqwOw)
 
 ## Autor
 Yasmin Cordeiro de Souza Meira
